@@ -1,0 +1,34 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item button detail=true [routerLink]="['/ofertas']">
+            <ion-icon name="briefcase-outline" slot="start" color="primary"></ion-icon>
+            Ofertas de Trabajo
+          </ion-item>
+          <ion-item button detail=true [routerLink]="['/postulaciones']">
+            <ion-icon name="newspaper-outline" slot="start" color="primary"></ion-icon>
+            Postulaciones
+          </ion-item>
+          <ion-item button detail=true [routerLink]="['/clima']">
+            <ion-icon name="partly-sunny-outline" slot="start" color="primary"></ion-icon>
+            Clima
+          </ion-item>
+          <ion-item button (click)="Onlogout()" detail=true>
+            <ion-icon name="log-out-outline" slot="start" color="primary"></ion-icon>
+            Cerrar sesión
+          </ion-item>
+      </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  
+    </ion-menu>
+    <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

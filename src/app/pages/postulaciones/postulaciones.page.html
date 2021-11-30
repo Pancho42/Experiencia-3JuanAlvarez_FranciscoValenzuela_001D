@@ -1,0 +1,93 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-button slot="start">
+      <ion-back-button 
+      defaultHref="/"
+      text="Atrás"
+      color="success"
+      mode="ios">
+      </ion-back-button>
+    </ion-button>
+
+     <!--Avatar-->
+     <ion-buttons slot="end" class="ion-padding">
+      <ion-avatar>
+        <a href="/inicio" ><ion-img src="/assets/img/icono.png" class="icon"></ion-img></a> 
+      </ion-avatar>
+   </ion-buttons>
+
+  
+    <ion-title class="titulo">
+    Postula a Alguna de Nuestras Ofertas de Trabajo Disponibles  
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding bg-image">
+ 
+    <!--Formulario de postulaciones-->
+    <form #formulario="ngForm" (ngSubmit) ="onSubmit()" class="transparente">
+  <ion-item class="item-background-color">
+    <ion-label position="floating">Número identificador de Oferta Laboral:</ion-label>
+    <ion-input name="ntrabajo"  type="number" placeholder="Ingrese Número de Identificador" [(ngModel)]= "newDato.ntrabajo" required></ion-input>
+  </ion-item>
+
+ 
+  <ion-item class="item-background-color">
+  <ion-label position="floating">Nombres:</ion-label>
+    <ion-input name="nombres" type="text" placeholder="Ingrese sus Nombres" [(ngModel)]= "newDato.nombres" required></ion-input>
+  </ion-item>
+  
+  <ion-item class="item-background-color">
+  <ion-label position="floating">Apellidos:</ion-label>
+    <ion-input name="apellidos" type="text" placeholder="Ingrese sus Apellidos"[(ngModel)]= "newDato.apellidos" required></ion-input>
+  </ion-item>
+  
+  <ion-item class="item-background-color">
+    <ion-label position="floating">Número de Teléfono:</ion-label>
+      <ion-input name="telefono" type="number" placeholder="Ingrese su teléfono" [(ngModel)]= "newDato.telefono" required></ion-input>
+    </ion-item>
+    
+  <ion-item class="item-background-color">
+    <ion-label position="floating">Correo Electrónico: </ion-label>
+    <ion-input name="correo" type="email" placeholder="ejemplo@ejemplo.com" [(ngModel)]= "newDato.correo"
+               pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+               required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item class="item-background-color">
+    <ion-label position="stacked">Adjuntar Curriculum:</ion-label>
+      <ion-input name="curri" type="file"  [(ngModel)]= "newDato.curri" required></ion-input>
+    </ion-item>
+   
+  <ion-item class="item-background-color">
+    <ion-label position="floating">Mensaje:</ion-label>
+    <ion-textarea name="mensaje" type="text" placeholder="Ingresar Mensaje"[(ngModel)]= "newDato.mensaje" required></ion-textarea>
+  </ion-item>
+
+  <ion-button         
+                      (click)="addDatos()" 
+                      [disabled] ="formulario.invalid"
+                      type="submit"
+                      expand="full" 
+                      [routerLink]="['/inicio']"> 
+    Enviar Postulación
+  </ion-button>
+</form>
+
+  <!--Fab al pie-->
+
+ <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+  <ion-fab-button>
+    <ion-icon name="share"></ion-icon>
+  </ion-fab-button>
+
+  <ion-fab-list side="top">
+    <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+    <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+    <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+  </ion-fab-list>
+</ion-fab>  
+</ion-content>

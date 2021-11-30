@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title style="text-align:center">RASTROLAB</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-imagen">
+  <br><br>
+  <ion-list class="transparent">
+    <br><br>
+    <ion-item class="item-background-color">
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
+    </ion-item>
+    <ion-item class="item-background-color">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input [(ngModel)]="password" type="password" name="password"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button (click)="onSubmitLogin()" expand="block">Iniciar sesión</ion-button>
+    <h6 style="text-align: center;">¿No tienes cuenta? <a [routerLink]="['/registro']">Registrate</a></h6>
+    <h6 style="text-align: center;">o</h6>
+    <h6 style="text-align: center;"><a [routerLink]="['/inicio']">Entra como invitado</a></h6>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-header > 
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" >
+      <ion-button (click)="mostrarMenu()"  >
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" class="ion-padding" >
+      <ion-avatar>
+        <ion-img src="/assets/img/icono.png" class="icon"></ion-img>
+      </ion-avatar>
+   </ion-buttons>
+ 
+    <ion-title class="titulo" >Rastrolab</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="bg-image">
+  <ion-card class="transparente">
+    <ion-card-header>
+      <ion-card-title class="titulo">Rastrolab</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="ion-padding contenido">
+      <ion-img src="assets/img/trabajo.jpg" class="photo"></ion-img>
+      Rastrolab se inicia como una ayuda para todas esas personas que están o quedaron cesantes durante la pandemia, puesto que, 
+      aquí encontraran un lugar donde revisar ofertas de empleo y a la vez, dar a conocer al mundo digital
+      su perfil laboral.
+      
+    </ion-card-content>
+    <ion-card-content class="ion-padding contenido">
+     El objetivo principal de esta app, es ayudar a bajar los indices de desempleo, generando nuevas intancias
+     para que las empresas puedan ampliar el rango de busqueda, ofreciendo ofertas de empleo y de esta forma las personas puedan 
+     postular a un sin fin de nuevos trabajos.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-slides pager="true" class="slide-full">
+
+    <ion-slide *ngFor="let slide of slides">
+      <a style="text-decoration:none" href="https://rastro.com/resultado.html?cl=6001" target="_blank">
+        <ion-card mode=ios class="card1">
+
+          <!-- <img [src]="slide.img" class="slide-image">-->
+
+          <img src="/assets/slide/adecco.jpg" class="slide-image">   
+          <ion-card-header class="card2">
+            <ion-card-title>{{slide.titulo}}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content class="card3">
+            {{slide.desc}}
+          </ion-card-content>
+        </ion-card>
+      </a>
+      
+    </ion-slide>    
+  </ion-slides>
+
+  <!--Botones fab-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button>
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab> 
+</ion-content>

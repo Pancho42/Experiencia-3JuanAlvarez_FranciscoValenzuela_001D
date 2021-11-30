@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="start">
+      <ion-back-button 
+      defaultHref="/"
+      text="Atrás"
+      color="success"
+      mode="ios">
+      </ion-back-button>
+    </ion-button>
+
+    <!--Avatar-->
+    <ion-buttons slot="end" class="ion-padding">
+      <ion-avatar >
+        <a href="/inicio" ><ion-img src="/assets/img/icono.png" class="icon"></ion-img></a>
+      </ion-avatar>
+   </ion-buttons>
+
+    <ion-title class="titulo" >Clima</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-imagen">
+  <main class="container-fluid">
+    <div class="row" *ngIf="cargando">
+      <div class="col-12 text-center">
+        <h2 class="display-5">Cargando. Espere un momento por favor</h2>
+        <img src="../../../assets/img/25.gif" alt="">
+      </div>
+    </div>
+    <div *ngIf="!cargando" class="row">
+      <div class="col-12">
+        <div class="text-center mt-2" *ngIf="!cargando">
+          <strong class="display-4">Maipú, Región {{region_name}}, {{country_name}}<br> {{hora}}</strong>
+        </div>
+      </div>
+      <div class="col-12">
+        <app-weather-detail [detalles]="detallesHoy"></app-weather-detail>
+      </div>
+  
+      <div *ngFor="let detalles of detallesProximos;" class="col-12 col-md-6 my-2">
+        <app-weather-detail [detalles]="detalles"></app-weather-detail>
+      </div>
+    </div>
+  </main>
+</ion-content>

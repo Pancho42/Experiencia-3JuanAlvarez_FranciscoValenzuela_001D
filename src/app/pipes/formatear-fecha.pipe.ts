@@ -1,0 +1,15 @@
+import { Pipe, PipeTransform } from '@angular/core';
+import { ClimaService } from '../servicios/weather.service'
+
+@Pipe({
+  name: 'formatearFecha'
+})
+export class FormatearFechaPipe implements PipeTransform {
+
+  constructor(private climaService: ClimaService) { }
+
+  transform(value: string): string {
+    return this.climaService.parsearFecha(value);
+  }
+
+}
